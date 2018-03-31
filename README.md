@@ -31,6 +31,17 @@ and this one will traverse all IPs in existence:
         console.log(`IP: ${ip}`);
     });
     
+If you want to perform an asynchronous action, make sure that your function returns a promise and call `iterateAsync`
+instead. `iterateAsync` itself returns a promise and will wait for the resolution of the promise returned by 
+your delegate, before it provides you with another IP.
+
+    const ipterate = require('ipterate');
+    const rp = require('request-promise');
+        
+    ipterate.range('0.0.0.0/0').iterateAsync(ip => {
+        return rp.get(ip);
+    });
+    
 # Installation
 
 npm install --save ipterate
