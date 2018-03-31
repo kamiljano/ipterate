@@ -1,7 +1,7 @@
 {
   "name": "ipterate",
   "version": "1.0.0",
-  "description": " A small utility library to allow you to iterate through all IPs within a given subnet. Remain efficient no matter how many IPs there are in the range.",
+  "description": " A small utility library to allow you to iterate through all IPs within a given subnet. Remains efficient no matter how many IPs there are in the range.",
   "main": "index.js",
   "scripts": {
     "test": "node ./node_modules/mocha/bin/mocha --recursive"
