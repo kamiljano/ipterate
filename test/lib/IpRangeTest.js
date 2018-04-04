@@ -32,3 +32,17 @@ describe('GIVEN the IpRange object is created with a valid IPv4 subnet', () => {
   });
 
 });
+
+describe('GIVEN the IpRange object is created with an invalid address', () => {
+
+  it('THEN an error should be thrown', () => {
+    let err;
+    try {
+      new IpRange('');
+    } catch(e) {
+      err = e;
+    }
+    expect(err).to.not.be.undefined;
+  });
+
+});
