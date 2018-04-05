@@ -1,2 +1,1 @@
-service_name: travis-pro
-repo_token: GMNP3AL9ChurVEJ5DS7fl5hWLDPSWHg7O
+repo_token: $REPO_TOKEN
