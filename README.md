@@ -1,3 +1,6 @@
+[![Build Status](https://travis-ci.org/kamiljano/ipterate.svg?branch=master)](https://travis-ci.org/kamiljano/ipterate)
+
+
 # About
 
 IpTerate is a small library that helps you iterate through all available IPs within a specific subnet.

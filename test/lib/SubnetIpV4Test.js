@@ -34,7 +34,11 @@ describe('GIVEN a string', () => {
   });
 
   it('WHEN the string contains too high number as the IP mask, THEN an error should be thrown', () => {
-    expectError(() => new SubnetIpV4('256.0.0.1/33'));
+    expectError(() => new SubnetIpV4('255.0.0.1/33'));
+  });
+
+  it('WHEN the mask is not applicable for the specified ip, THEN an error should be thrown', () => {
+    expectError(() => new SubnetIpV4('255.0.0.1/0'));
   });
 
   it('WHEN the string contains the mask does not match the IP address, THEN an error should be thrown', () => {
