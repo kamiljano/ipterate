@@ -4,7 +4,7 @@
   "description": " A small utility library to allow you to iterate through all IPs within a given subnet. Remains efficient no matter how many IPs there are in the range.",
   "main": "index.js",
   "scripts": {
-    "test": "node ./node_modules/istanbul/lib/cli.js cover ./node_modules/mocha/bin/_mocha -- --recursive"
+    "test": "node ./node_modules/istanbul/lib/cli.js cover ./node_modules/mocha/bin/_mocha --report lcovonly -- --recursive && cat ./coverage/lcov.info | node ./node_modules/coveralls/bin/coveralls.js"
   },
   "repository": "https://github.com/kamiljano/ipterate",
   "keywords": [
@@ -18,7 +18,9 @@
   "devDependencies": {
     "chai": "~4.1.2",
     "chai-spies": "~1.0.0",
+    "coveralls": "^3.0.0",
     "istanbul": "^1.1.0-alpha.1",
-    "mocha": "~5.0.5"
+    "mocha": "~5.0.5",
+    "mocha-lcov-reporter": "^1.3.0"
   }
 }
