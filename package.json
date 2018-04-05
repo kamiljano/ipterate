@@ -3,17 +3,26 @@
   "version": "1.0.3",
   "description": " A small utility library to allow you to iterate through all IPs within a given subnet. Remains efficient no matter how many IPs there are in the range.",
   "main": "index.js",
-  "scripts": {
-    "test": "node ./node_modules/istanbul/lib/cli.js cover ./node_modules/mocha/bin/_mocha --report lcovonly -- --recursive && cat ./coverage/lcov.info | node ./node_modules/coveralls/bin/coveralls.js"
+  "directories": {
+    "test": "test",
+    "lib": "lib"
   },
-  "repository": "https://github.com/kamiljano/ipterate",
+  "scripts": {
+    "test": "node ./node_modules/istanbul/lib/cli.js cover ./node_modules/mocha/bin/_mocha --report lcovonly -- --recursive",
+    "send-coverage": "cat ./coverage/lcov.info | node ./node_modules/coveralls/bin/coveralls.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kamiljano/ipterate.git"
+  },
+  "homepage": "https://github.com/kamiljano/ipterate",
   "keywords": [
     "ip",
     "iterate",
     "subnet",
     "mask"
   ],
-  "author": "kgjanowski@gmail.com",
+  "author": "Kamil Janowski <kgjanowski@gmail.com>",
   "license": "ISC",
   "devDependencies": {
     "chai": "~4.1.2",
