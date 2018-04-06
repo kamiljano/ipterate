@@ -18,17 +18,33 @@ describe('GIVEN the IpRange object is created with a valid IPv4 subnet', () => {
   it('WHEN triggering the iterate(), THEN all IPs within the subnet are properly processed', () => {
     new IpRange('255.255.255.0/24').iterate(callback);
     expect(callback).to.have.been.called.exactly(256);
-    expect(callback).to.have.been.called.with('255.255.255.0');
-    expect(callback).to.have.been.called.with('255.255.255.255');
+    expect(callback).to.have.been.called.with('255.255.255.0', {
+      allIps: 256,
+      iteration: 1,
+      completionPercentage: 0
+    });
+    expect(callback).to.have.been.called.with('255.255.255.255', {
+      allIps: 256,
+      iteration: 256,
+      completionPercentage: 100
+    });
   });
 
   it('WHEN triggering the iterateAsync(), THEN all IPs within the subnet are properly processed', async () => {
-    await new IpRange('255.255.255.0/24').iterateAsync(async ip => {
-      callback(ip);
+    await new IpRange('255.255.255.0/24').iterateAsync(async (ip, data) => {
+      callback(ip, data);
     });
     expect(callback).to.have.been.called.exactly(256);
-    expect(callback).to.have.been.called.with('255.255.255.0');
-    expect(callback).to.have.been.called.with('255.255.255.255');
+    expect(callback).to.have.been.called.with('255.255.255.0', {
+      allIps: 256,
+      iteration: 1,
+      completionPercentage: 0
+    });
+    expect(callback).to.have.been.called.with('255.255.255.255', {
+      allIps: 256,
+      iteration: 256,
+      completionPercentage: 100
+    });
   });
 
 });

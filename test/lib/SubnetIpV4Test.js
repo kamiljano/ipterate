@@ -73,4 +73,34 @@ describe('GIVEN a string', () => {
     });
 
   });
+
+  describe('WHEN the string is a valid subnet identifier AND the buildProgressData() is called', () => {
+
+    it('with a valid IP, but one that does not match the subnet, THEN an error is thrown', () => {
+      const subnet = new SubnetIpV4('255.255.255.0/24');
+      expectError(() => subnet.buildProgressData('0.0.0.0'));
+    });
+
+    it('with a valid IP that matches the subnet, THEN a valid number of all IPs is returned', () => {
+      const subnet = new SubnetIpV4('255.255.255.0/24');
+      expect(subnet.buildProgressData('255.255.255.0').allIps).to.equal(256);
+    });
+
+    it('with a valid max IP that matches the subnet, THEN a valid number of all IPs is returned', () => {
+      const subnet = new SubnetIpV4('0.0.0.0/0');
+      expect(subnet.buildProgressData('255.255.255.255').allIps).to.equal(Math.pow(2, 32));
+      expect(subnet.buildProgressData('255.255.255.255').iteration).to.equal(Math.pow(2, 32));
+    });
+
+    it('with a valid IP that matches the subnet, THEN a valid index is returned', () => {
+      const subnet = new SubnetIpV4('255.255.0.0/16');
+      expect(subnet.buildProgressData('255.255.1.0').iteration).to.equal(257);
+    });
+
+    it('with a valid IP that matches the subnet, THEN a valid completion percentage is returned', () => {
+      const subnet = new SubnetIpV4('255.255.255.0/24');
+      expect(subnet.buildProgressData('255.255.255.128').completionPercentage).to.equal(50);
+    });
+
+  });
 });
