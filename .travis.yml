@@ -6,4 +6,6 @@ install:
   - npm install
 script:
   - npm test
-after_success: npm run send-coverage
+after_success:
+  - npm run send-coverage
+  - npm publish
