@@ -8,7 +8,7 @@ IpTerate is a small library that helps you iterate through all available IPs wit
 
 # Usage
 
-## Basic usage
+## Usage with a callback
 
 For instance the following code
 
@@ -59,6 +59,24 @@ In the second parameter the `iterate` and `iterateAsync` provide itaration infor
         console.log(`Completion percentage: ${data.completionPercentage}`); // an integer number between 0 and 100
                                                                             // calculated based on allIps and iteration
     });
+   
+## Usage in a loop
+
+Alternatively, instead of using callbacks, you can just iterate the IPs in a loop
+
+    for (let {ip, progress} of ipterate.range('10.0.1.0/29').iterate()) {
+      // your stuff
+    }
+    
+## Starting from a saved point
+
+If you're iterating through a large number of IPs, you's likely that you will want to save your progress at some point
+and then continue from where you left off. For this purpose you can use the startWith() method.
+
+    for (let {ip, progress} of ipterate.range('0.0.0.0/0').startWith('10.0.1.5').iterate()) {
+      // your stuff
+    }
+
 
 # Installation
 

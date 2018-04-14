@@ -103,4 +103,31 @@ describe('GIVEN a string', () => {
     });
 
   });
+
+  describe('WHEN the string is a valid subnet identifier AND the isWithingSubnet() is called', () => {
+
+    it('with a valid ip string that matches the subnet, THEN true is returned', () => {
+      expect(new SubnetIpV4('0.0.0.0/0').isWithinSubnet('1.1.1.1')).to.equal(true);
+    });
+
+    it('with a valid ip string that does not match the subnet, THEN false is returned', () => {
+      expect(new SubnetIpV4('255.255.255.0/24').isWithinSubnet('1.1.1.1')).to.equal(false);
+    });
+
+    it('with a valid ip array that matches the subnet, THEN true is returned', () => {
+      expect(new SubnetIpV4('0.0.0.0/0').isWithinSubnet([1, 1, 1, 1])).to.equal(true);
+    });
+
+    it('with a valid ip array that does not match the subnet, THEN false is returned', () => {
+      expect(new SubnetIpV4('255.255.255.0/24').isWithinSubnet([1, 1, 1, 1])).to.equal(false);
+    });
+
+    it('with an invalid data type, THEN false is returned', () => {
+      expect(new SubnetIpV4('255.255.255.0/24').isWithinSubnet({})).to.equal(false);
+    });
+
+    it('with an invalid string, THEN false is returned', () => {
+      expect(new SubnetIpV4('255.255.255.0/24').isWithinSubnet('abcd')).to.equal(false);
+    });
+  })
 });
