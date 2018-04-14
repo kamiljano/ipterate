@@ -3,6 +3,9 @@
   "version": "1.1.0",
   "description": " A small utility library to allow you to iterate through all IPs within a given subnet. Remains efficient no matter how many IPs there are in the range.",
   "main": "index.js",
+  "engines": {
+    "node": ">=8.9.0"
+  },
   "directories": {
     "test": "test",
     "lib": "lib"
