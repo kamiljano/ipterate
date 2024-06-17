@@ -2,8 +2,8 @@
   "name": "ipterate",
   "version": "2.0.0",
   "description": "A small utility library to allow you to iterate through all IPs within a given subnet. Remains efficient no matter how many IPs there are in the range.",
-  "main": "dist/index.js",
-  "types": "dist/index.d.ts",
+  "main": "dist/src/index.js",
+  "types": "dist/src/index.d.ts",
   "files": [
     "dist"
   ],
