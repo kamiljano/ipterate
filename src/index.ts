@@ -1,6 +1,5 @@
 import {
   getIpV4Range,
-  IpV4Cidr,
   IpV4IterationOptions,
   iterateIpV4Addresses,
   max32BitInteger,
