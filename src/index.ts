@@ -17,6 +17,7 @@ export {
   IpV4Cidr,
 } from "./ipv4";
 
+export * from "./ipv6";
 export * from "./progress";
 
 const getProgress = (range: NumberRange, i: number): IterationProgress => {
