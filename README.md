@@ -1,7 +1,5 @@
 [![Node version](https://img.shields.io/node/v/ipterate.svg?style=flat)](http://nodejs.org/download/)
-[![Build Status](https://travis-ci.org/kamiljano/ipterate.svg?branch=master)](https://travis-ci.org/kamiljano/ipterate)
 [![Known Vulnerabilities](https://snyk.io/test/github/kamiljano/ipterate/badge.svg?targetFile=package.json)](https://snyk.io/test/github/kamiljano/ipterate?targetFile=package.json)
-[![Coverage Status](https://coveralls.io/repos/github/kamiljano/ipterate/badge.svg?branch=master)](https://coveralls.io/github/kamiljano/ipterate?branch=master)
 [![https://nodei.co/npm/ipterate.png?downloads=true&downloadRank=true&stars=true](https://nodei.co/npm/ipterate.png?downloads=true&downloadRank=true&stars=true)](https://www.npmjs.com/package/ipterate)
 
 # About
@@ -72,7 +70,7 @@ Alternatively, instead of using callbacks, you can just iterate the IPs in a loo
     
 ## Starting from a saved point
 
-If you're iterating through a large number of IPs, you's likely that you will want to save your progress at some point
+If you're iterating through a large number of IPs, it is likely that you will want to save your progress at some point
 and then continue from where you left off. For this purpose you can use the startWith() method.
 
     for (let {ip, progress} of ipterate.range('0.0.0.0/0').startWith('10.0.1.5').iterate()) {
