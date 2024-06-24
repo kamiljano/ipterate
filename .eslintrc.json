@@ -1,0 +1,12 @@
+{
+  "plugins": [
+    "eslint-plugin-unused-imports",
+    "@typescript-eslint/eslint-plugin"
+  ],
+  "parser": "@typescript-eslint/parser",
+  "rules": {
+    "react/no-unescaped-entities": "off",
+    "no-duplicate-imports": "error",
+    "unused-imports/no-unused-imports": "error"
+  }
+}
