@@ -88,6 +88,19 @@ for (const ip of iterateIpV6Addresses("2001:db8::/125")) {
 }
 ```
 
+5. Iterate over IPv6 in their full form.
+
+The IPv6 addresses by default are returned in their compressed form. So for instance `2001:0db8:0000:0000:0000:0000:0000:0001` will be returned as `2001:db8::1`. 
+If you want to iterate over the full form of the IPv6 addresses, you can use the `short` option and set it to false
+
+```typescript
+import { iterateIpV6Addresses } from "ipterate";
+
+for (const ip of iterateIpV6Addresses("2001:db8::/125"), { short: false }) {
+  console.log(ip);
+}
+```
+
 # Deprecated usage
 
 The old interface has been temporarily backported for compatibility reasons, but it will no longer be maintained and will

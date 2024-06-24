@@ -21,7 +21,7 @@ describe("iterateIpV6Addresses", () => {
     expect(result).toEqual(["::", "::1", "::2"]);
   });
 
-  test("should iterate over all IPv6 addresses defined by the range as IP addresses in full format", () => {
+  test("should iterate over all IPv6 addresses defined by the range as IP addresses in short format", () => {
     const result: string[] = [];
 
     for (const ip of iterateIpV6Addresses({
@@ -32,6 +32,26 @@ describe("iterateIpV6Addresses", () => {
     }
 
     expect(result).toEqual(["::", "::1", "::2"]);
+  });
+
+  test("should iterate over all IPv6 addresses defined by the range as IP addresses in full format", () => {
+    const result: string[] = [];
+
+    for (const ip of iterateIpV6Addresses(
+      {
+        from: "0000:0000:0000:0000:0000:0000:0000:0000",
+        to: "0000:0000:0000:0000:0000:0000:0000:0002",
+      },
+      { short: false },
+    )) {
+      result.push(ip);
+    }
+
+    expect(result).toEqual([
+      "0000:0000:0000:0000:0000:0000:0000:0000",
+      "0000:0000:0000:0000:0000:0000:0000:0001",
+      "0000:0000:0000:0000:0000:0000:0000:0002",
+    ]);
   });
 
   test("should iterate over all IPv6 addresses defined by the CIDR", () => {

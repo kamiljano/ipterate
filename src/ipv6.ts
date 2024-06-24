@@ -17,6 +17,10 @@ interface IpV6NumberRange {
   to: bigint;
 }
 
+export interface IpV6Params {
+  short: boolean;
+}
+
 const fromIPv6Cidr = (cidr: string): IpV6NumberRange => {
   const [ip, mask] = cidr.split("/");
   const maskNumber = BigInt(parseInt(mask, 10));
@@ -59,10 +63,14 @@ const getIpV6Range = (opts: IpV6IterationOptions): IpV6NumberRange => {
   return result;
 };
 
-export function* iterateIpV6Addresses(opts: IpV6IterationOptions) {
+export function* iterateIpV6Addresses(
+  opts: IpV6IterationOptions,
+  params?: IpV6Params,
+) {
   const { from, to } = getIpV6Range(opts);
+  const shortRepresentation = params?.short ?? true;
 
   for (let i = from; i <= to; i++) {
-    yield toIPv6(i);
+    yield toIPv6(i, shortRepresentation);
   }
 }

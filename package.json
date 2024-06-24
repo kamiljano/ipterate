@@ -30,7 +30,7 @@
   "author": "Kamil Janowski <kgjanowski@gmail.com>",
   "license": "ISC",
   "dependencies": {
-    "toip": "1.0.3"
+    "toip": "1.0.4"
   },
   "devDependencies": {
     "@types/jest": "^29.5.12",
